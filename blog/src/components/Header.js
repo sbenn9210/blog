@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import glamorous from "glamorous";
-
+import GoogleAuth from "./GoogleAuth";
 class Header extends Component {
   render() {
     return (
