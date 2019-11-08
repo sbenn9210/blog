@@ -7,8 +7,8 @@ class Header extends Component {
       <Div>
         <h1>Blogger</h1>
         <h3>Become a member</h3>
-        <h3>Sign in</h3>
         <h3>Get Started</h3>
+        <GoogleAuth />
       </Div>
     );
   }
@@ -17,5 +17,7 @@ class Header extends Component {
 export default Header;
 
 const Div = glamorous.div({
-  display: "flex"
+  display: "flex",
+  justifyContent: "space-evenly",
+  marginBottom: "25px"
 });
