@@ -1,56 +1,60 @@
 import React, { Component } from "react";
-import { Field, reduxForm } from "redux-form";
+import TextInput from "../../containers/TextInput";
+import TextArea from "../../containers/TextArea";
 
 class BlogCreate extends Component {
-  renderError({ error, touched }) {
-    if (touched && error) {
-      return (
-        <div className="ui error message">
-          <div className="header">{error}</div>
-        </div>
-      );
+  state = {
+    formControls: {
+      title: {
+        value: ""
+      },
+      body: {
+        value: ""
+      }
     }
-  }
-  renderInput = ({ label, input, meta }) => {
-    return (
-      <div className="field">
-        <label>{label}</label>
-        <input {...input} />
-        {this.renderError(meta)}
-      </div>
-    );
   };
-  onSubmit(formValues) {
-    console.log(formValues);
-  }
+
+  handleInput = e => {
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({
+      formControls: {
+        ...this.state.formControls,
+
+        [name]: {
+          ...this.state.formControls[name],
+          value
+        }
+      }
+    });
+  };
   render() {
     return (
-      <form
-        className="ui form"
-        onSubmit={this.props.handleSubmit(this.onSubmit)}
-      >
-        <Field name="title" component={this.renderInput} label="Enter Title" />
-        <Field
-          name="description"
-          component={this.renderInput}
-          label="Enter description"
-        />
-        <button className="ui button primary">Submit</button>
-      </form>
+      <div>
+        <form className="ui form">
+          <div className="field">
+            <label>Title</label>
+            <TextInput
+              autoFocus
+              type="text"
+              name="title"
+              value={this.state.formControls.title.value}
+              onChange={this.handleInput}
+            />
+          </div>
+          <div className="field">
+            <label>Body</label>
+            <TextArea
+              type="text"
+              name="body"
+              value={this.state.formControls.body.value}
+              onChange={this.handleInput}
+            />
+          </div>
+        </form>
+      </div>
     );
   }
 }
 
-const validate = formValues => {
-  const errors = {};
-  if (!formValues.title) {
-    errors.title = "You must enter a title";
-  }
-  if (!formValues.description) {
-    errors.description = "You must enter a description";
-  }
-
-  return errors;
-};
-
-export default reduxForm({ form: "blogCreate", validate })(BlogCreate);
+export default BlogCreate;
