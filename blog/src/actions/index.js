@@ -1,6 +1,6 @@
 import _ from "lodash";
 import jsonPlaceholder from "../apis/jsonPlaceholder";
-import { SIGN_IN, SIGN_OUT } from "./types";
+import { SIGN_IN, SIGN_OUT, CREATE_TITLE, CREATE_BODY } from "./types";
 
 // export const fetchPosts = async () => {
 //   //Bad approach!!
@@ -48,5 +48,19 @@ export const signIn = userId => {
 export const signOut = () => {
   return {
     type: SIGN_OUT
+  };
+};
+
+export const createTitle = title => {
+  return {
+    type: CREATE_TITLE,
+    payload: title
+  };
+};
+
+export const createBody = body => {
+  return {
+    type: CREATE_BODY,
+    payload: body
   };
 };

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import TextInput from "../../containers/TextInput";
 import TextArea from "../../containers/TextArea";
-
+import { connect } from "react-redux";
 class BlogCreate extends Component {
   state = {
     formControls: {
@@ -66,4 +66,11 @@ class BlogCreate extends Component {
   }
 }
 
-export default BlogCreate;
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    title: state.blog.title,
+    body: state.blog.body
+  };
+};
+export default connect(mapStateToProps)(BlogCreate);
