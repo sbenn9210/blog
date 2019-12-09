@@ -28,6 +28,12 @@ class BlogCreate extends Component {
       }
     });
   };
+
+  handleSubmit = e => {
+    console.log("Form is submitted");
+    e.preventDefault();
+  };
+
   render() {
     return (
       <div>
@@ -51,6 +57,9 @@ class BlogCreate extends Component {
               onChange={this.handleInput}
             />
           </div>
+          <button onClick={this.handleSubmit} className="ui button primary">
+            Submit
+          </button>
         </form>
       </div>
     );
