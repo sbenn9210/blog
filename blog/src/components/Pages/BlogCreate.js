@@ -3,8 +3,6 @@ import TextInput from "../../containers/TextInput";
 import TextArea from "../../containers/TextArea";
 import { connect } from "react-redux";
 
-import { createBody, createTitle } from "../../actions";
-
 class BlogCreate extends Component {
   state = {
     formControls: {
@@ -70,14 +68,6 @@ class BlogCreate extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  console.log(state);
-  return {
-    title: state.blog.title,
-    body: state.blog.body
-  };
-};
-
 const mapDispatchToProps = dispatch => {
   return {
     addTitle: title =>
@@ -92,4 +82,4 @@ const mapDispatchToProps = dispatch => {
       })
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(BlogCreate);
+export default connect(null, mapDispatchToProps)(BlogCreate);
