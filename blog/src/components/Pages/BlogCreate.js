@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import TextInput from "../../containers/TextInput";
 import TextArea from "../../containers/TextArea";
 import { connect } from "react-redux";
+
+import { createBody, createTitle } from "../../actions";
+
 class BlogCreate extends Component {
   state = {
     formControls: {
@@ -29,9 +32,10 @@ class BlogCreate extends Component {
     });
   };
 
-  handleSubmit = e => {
-    console.log("Form is submitted");
+  addPost = e => {
     e.preventDefault();
+    this.props.addTitle(this.state.formControls.title.value);
+    this.props.addBody(this.state.formControls.body.value);
   };
 
   render() {
@@ -57,7 +61,7 @@ class BlogCreate extends Component {
               onChange={this.handleInput}
             />
           </div>
-          <button onClick={this.handleSubmit} className="ui button primary">
+          <button onClick={this.addPost} className="ui button primary">
             Submit
           </button>
         </form>
@@ -73,4 +77,19 @@ const mapStateToProps = state => {
     body: state.blog.body
   };
 };
-export default connect(mapStateToProps)(BlogCreate);
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addTitle: title =>
+      dispatch({
+        type: "CREATE_TITLE",
+        payload: title
+      }),
+    addBody: body =>
+      dispatch({
+        type: "CREATE_BODY",
+        payload: body
+      })
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(BlogCreate);
