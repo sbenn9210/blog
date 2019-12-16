@@ -34,6 +34,7 @@ class BlogCreate extends Component {
     e.preventDefault();
     this.props.addTitle(this.state.formControls.title.value);
     this.props.addBody(this.state.formControls.body.value);
+    this.props.history.push("/blogs/read");
   };
 
   render() {
