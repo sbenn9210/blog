@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TextInput from "../../containers/TextInput";
 import TextArea from "../../containers/TextArea";
+import { connect } from "react-redux";
 
 class BlogEdit extends Component {
   state = {
@@ -14,6 +15,7 @@ class BlogEdit extends Component {
     }
   };
   render() {
+    const { post } = this.props;
     return (
       <div>
         <form className="ui form">
@@ -23,7 +25,7 @@ class BlogEdit extends Component {
               autoFocus
               type="text"
               name="title"
-              value={this.state.formControls.title.value}
+              value={post.title}
               onChange={this.handleInput}
             />
           </div>
@@ -32,7 +34,7 @@ class BlogEdit extends Component {
             <TextArea
               type="text"
               name="body"
-              value={this.state.formControls.body.value}
+              value={post.body}
               onChange={this.handleInput}
             />
           </div>
@@ -45,4 +47,10 @@ class BlogEdit extends Component {
   }
 }
 
-export default BlogEdit;
+const mapStateToProps = state => {
+  return {
+    post: state.blog
+  };
+};
+
+export default connect(mapStateToProps)(BlogEdit);
