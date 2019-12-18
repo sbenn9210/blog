@@ -21,7 +21,6 @@ class BlogCreate extends Component {
     this.setState({
       formControls: {
         ...this.state.formControls,
-
         [name]: {
           ...this.state.formControls[name],
           value
