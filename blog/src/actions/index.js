@@ -1,6 +1,12 @@
 import _ from "lodash";
 import jsonPlaceholder from "../apis/jsonPlaceholder";
-import { SIGN_IN, SIGN_OUT, CREATE_TITLE, CREATE_BODY } from "./types";
+import {
+  SIGN_IN,
+  SIGN_OUT,
+  CREATE_TITLE,
+  CREATE_BODY,
+  NEW_POST
+} from "./types";
 
 // export const fetchPosts = async () => {
 //   //Bad approach!!
@@ -62,5 +68,12 @@ export const createBody = body => {
   return {
     type: CREATE_BODY,
     payload: body
+  };
+};
+
+export const addPost = post => {
+  return {
+    type: NEW_POST,
+    payload: post
   };
 };
