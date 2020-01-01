@@ -33,7 +33,11 @@ class BlogCreate extends Component {
     e.preventDefault();
     this.props.addTitle(this.state.formControls.title.value);
     this.props.addBody(this.state.formControls.body.value);
-    this.props.history.push("/blogs/read");
+    this.props.newPost({
+      title: this.state.formControls.title.value,
+      body: this.state.formControls.body.value
+    });
+    // this.props.history.push("/blogs/read");
   };
 
   render() {
@@ -79,6 +83,12 @@ const mapDispatchToProps = dispatch => {
       dispatch({
         type: "CREATE_BODY",
         payload: body
+      }),
+    newPost: (title, body) =>
+      dispatch({
+        type: "NEW_POST",
+        payload: title,
+        body
       })
   };
 };
