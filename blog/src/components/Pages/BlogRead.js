@@ -25,6 +25,10 @@ class BlogRead extends Component {
         </div>
         <h1>{post.title}</h1>
         <p>{post.body}</p>
+        <button onClick={() => this.props.history.push("/")}>Home</button>
+        <button onClick={() => this.props.history.push("/blogs/create")}>
+          Create blog
+        </button>
       </div>
     );
   }
