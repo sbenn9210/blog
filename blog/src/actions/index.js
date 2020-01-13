@@ -7,6 +7,7 @@ import {
   CREATE_BODY,
   NEW_POST
 } from "./types";
+import axios from "axios";
 
 // export const fetchPosts = async () => {
 //   //Bad approach!!
@@ -30,6 +31,19 @@ export const fetchPosts = () => async dispatch => {
   dispatch({
     type: "FETCH_POSTS",
     payload: response.data
+  });
+};
+export const fetchNewsPosts = () => async dispatch => {
+  const config = {
+    headers: { "X-Api-Key": "" }
+  };
+  const response = await axios.get(
+    "https://newsapi.org/v2/top-headlines?country=us",
+    config
+  );
+  dispatch({
+    type: "FETCH_NEWS_POSTS",
+    payload: response.data.articles
   });
 };
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import GoogleAuth from "./GoogleAuth";
+import Topics from "./Topics";
 class Header extends Component {
   render() {
     const headerStyle = {
@@ -23,16 +24,19 @@ class Header extends Component {
       marginRight: "24px"
     };
     return (
-      <div style={headerStyle}>
-        <h1>Blogger</h1>
-        <div style={rightIcons}>
-          <i style={buttonSpacing} className="large search icon" />
-          <i style={buttonSpacing} className="large bell outline icon" />
-          <button style={buttonSpacing} className="ui black basic button">
-            Upgrade
-          </button>
-          <GoogleAuth />
+      <div>
+        <div style={headerStyle}>
+          <h1>Blogger</h1>
+          <div style={rightIcons}>
+            <i style={buttonSpacing} className="large search icon" />
+            <i style={buttonSpacing} className="large bell outline icon" />
+            <button style={buttonSpacing} className="ui black basic button">
+              Upgrade
+            </button>
+            <GoogleAuth />
+          </div>
         </div>
+        <Topics />
       </div>
     );
   }
