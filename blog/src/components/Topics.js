@@ -15,8 +15,7 @@ function Topics() {
   const container = {
     display: "flex",
     justifyContent: "center",
-    marginLeft: "auto",
-    marginRight: "auto",
+    margin: "0 auto 24px auto",
     width: mobileView.matches ? "400px" : "1000px",
     whiteSpace: "nowrap"
   };
