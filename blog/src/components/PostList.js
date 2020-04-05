@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchPostsAndUsers } from "../actions";
 import { fetchNewsPosts } from "../actions";
+import styled from 'styled-components'
 
 class PostList extends Component {
   componentDidMount() {
@@ -21,7 +22,7 @@ class PostList extends Component {
     if (this.props.newsPosts) {
       return this.props.newsPosts.map(post => {
         return (
-          <div style={this.flex} className="item">
+          <div style={this.flex} className="item ui container" >
             <div>
               <img style={this.images} alt={"images"} src={post.urlToImage} />
             </div>
@@ -40,6 +41,15 @@ class PostList extends Component {
       return <h1>loading...</h1>;
     }
   }
+
+  renderBreakingStories() {
+    return (
+      <div>
+
+      </div>
+    )
+  }
+
   render() {
     const { userPosts } = this.props;
     return (
@@ -70,3 +80,9 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, { fetchPostsAndUsers, fetchNewsPosts })(
   PostList
 );
+
+
+const Container = styled.div `
+width: 100%,
+maxWith: 1208px
+`

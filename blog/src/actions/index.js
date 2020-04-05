@@ -35,7 +35,7 @@ export const fetchPosts = () => async dispatch => {
 };
 export const fetchNewsPosts = () => async dispatch => {
   const config = {
-    headers: { "X-Api-Key": "" }
+    headers: { "X-Api-Key": "da80e42fb78d4284bb144840818137bb" }
   };
   const response = await axios.get(
     "https://newsapi.org/v2/top-headlines?country=us",
