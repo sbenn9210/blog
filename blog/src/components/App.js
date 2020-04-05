@@ -12,7 +12,7 @@ const App = () => {
     <div>
       <Header />
       <BrowserRouter>
-        <div className="ui container">
+        <div>
           <Route path="/" exact component={PostList} />
           <Route path="/blogs/create" exact component={BlogCreate} />
           <Route path="/blogs/delete" exact component={BlogDelete} />
