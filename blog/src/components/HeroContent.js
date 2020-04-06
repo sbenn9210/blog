@@ -42,8 +42,17 @@ class HeroContent extends Component {
               </Container>
                 : null
             }
-
                 <div>{this.renderHeroMiddle()}</div>
+                {this.props.newsPosts && this.props.newsPosts[0] ? 
+                <Container>
+                <HeroImage src={this.props.newsPosts[0].urlToImage} />
+                <TextContainer>
+                <h2>{this.props.newsPosts[0].title}</h2>
+                <p>{this.props.newsPosts[0].author} in {this.props.newsPosts[0].source.name}</p>
+                </TextContainer>  
+              </Container>
+                : null
+            }
             </ExtremeHero>
         )
     }
