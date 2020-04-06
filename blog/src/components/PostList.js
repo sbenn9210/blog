@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import { fetchPostsAndUsers } from "../actions";
 import { fetchNewsPosts } from "../actions";
 import styled from 'styled-components'
+import HeroContent from './HeroContent'
 
 class PostList extends Component {
   componentDidMount() {
     this.props.fetchPostsAndUsers();
-    this.props.fetchNewsPosts();
   }
 
 
@@ -22,7 +22,6 @@ class PostList extends Component {
   renderList() {
     if (this.props.newsPosts) {
       return this.props.newsPosts.map((post, index) => {
-        if (index !== 0) {
           return (
             <div key={index} style={this.flex} className="item ui container" >
               <div>
@@ -38,30 +37,15 @@ class PostList extends Component {
               </div>
             </div>
           );
-        }
       });
     } else {
       return <h1>loading...</h1>;
     }
   }
 
-  renderBreakingStories() {
-    if (this.props.newsPosts && this.props.newsPosts[0]) { 
-      var firstStory = this.props.newsPosts[0]
-      return (
-        <ExtremeHero>
-        <Container>
-          <HeroImage src={firstStory.urlToImage} />
-          <TextContainer>
-          <h1>{firstStory.title}</h1>
-      <p>{firstStory.author} in {firstStory.source.name}</p>
-          </TextContainer>  
-        </Container>
-        </ExtremeHero>
-      )
-    }
-    
-  }
+
+  
+
 
   render() {
     const { userPosts } = this.props;
@@ -80,7 +64,7 @@ class PostList extends Component {
             </div>
           </div>
         ))}
-        <div>{this.renderBreakingStories()}</div>
+        <HeroContent />
         <ExtremeContainer>{this.renderList()}</ExtremeContainer>
       </div>
     );
@@ -95,31 +79,12 @@ export default connect(mapStateToProps, { fetchPostsAndUsers, fetchNewsPosts })(
   PostList
 );
 
-const ExtremeHero = styled.div `
-  max-width: 1208px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-`
 
-const Container = styled.div `
-  width: 484px;
-  height: 350px;
-`
 
-const HeroImage = styled.img `
-  height: 150px;
-  Width: 100%;
-  margin-bottom: 16px;
-`
-const TextContainer = styled.div `
-  padding-left: 88px;
-`
+
+
 
 const ExtremeContainer = styled.div `
   margin-top: 48px;
 `
 
-const MiddleContainer = styled.div `
-  
-`
