@@ -10,6 +10,7 @@ class PostList extends Component {
     this.props.fetchNewsPosts();
   }
 
+
   images = {
     height: "100px",
     width: "100px",
@@ -43,11 +44,15 @@ class PostList extends Component {
   }
 
   renderBreakingStories() {
-    return (
-      <div>
-
-      </div>
-    )
+    if (this.props.newsPosts && this.props.newsPosts[0]) { 
+      var firstStory = this.props.newsPosts[0]
+      return (
+        <Container>
+          <PrimaryImage src={firstStory.urlToImage} />
+        </Container>
+      )
+    }
+    
   }
 
   render() {
@@ -67,6 +72,7 @@ class PostList extends Component {
             </div>
           </div>
         ))}
+        <div>{this.renderBreakingStories()}</div>
         <div className="ui relaxed divided list">{this.renderList()}</div>
       </div>
     );
@@ -83,6 +89,11 @@ export default connect(mapStateToProps, { fetchPostsAndUsers, fetchNewsPosts })(
 
 
 const Container = styled.div `
-width: 100%,
+width: 100%;
 maxWith: 1208px
+`
+
+const PrimaryImage = styled.img `
+  height: 150px;
+  Width: 448px
 `
