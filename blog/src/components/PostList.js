@@ -10,6 +10,7 @@ class PostList extends Component {
     this.props.fetchNewsPosts();
   }
 
+
   images = {
     height: "100px",
     width: "100px",
@@ -20,22 +21,24 @@ class PostList extends Component {
   };
   renderList() {
     if (this.props.newsPosts) {
-      return this.props.newsPosts.map(post => {
-        return (
-          <div style={this.flex} className="item ui container" >
-            <div>
-              <img style={this.images} alt={"images"} src={post.urlToImage} />
-            </div>
-            <div className="content">
-              <div className="description">
-                <h2>{post.title}</h2>
-                <p>{post.description}</p>
-                <p>{post.content}</p>
+      return this.props.newsPosts.map((post, index) => {
+        if (index !== 0) {
+          return (
+            <div key={index} style={this.flex} className="item ui container" >
+              <div>
+                <img style={this.images} alt={"images"} src={post.urlToImage} />
               </div>
-              <p>{post.author}</p>
+              <div className="content">
+                <div className="description">
+                  <h2>{post.title}</h2>
+                  <p>{post.description}</p>
+                  <p>{post.content}</p>
+                </div>
+                <p>{post.author}</p>
+              </div>
             </div>
-          </div>
-        );
+          );
+        }
       });
     } else {
       return <h1>loading...</h1>;
@@ -43,11 +46,21 @@ class PostList extends Component {
   }
 
   renderBreakingStories() {
-    return (
-      <div>
-
-      </div>
-    )
+    if (this.props.newsPosts && this.props.newsPosts[0]) { 
+      var firstStory = this.props.newsPosts[0]
+      return (
+        <ExtremeHero>
+        <Container>
+          <HeroImage src={firstStory.urlToImage} />
+          <TextContainer>
+          <h1>{firstStory.title}</h1>
+      <p>{firstStory.author} in {firstStory.source.name}</p>
+          </TextContainer>  
+        </Container>
+        </ExtremeHero>
+      )
+    }
+    
   }
 
   render() {
@@ -67,7 +80,8 @@ class PostList extends Component {
             </div>
           </div>
         ))}
-        <div className="ui relaxed divided list">{this.renderList()}</div>
+        <div>{this.renderBreakingStories()}</div>
+        <ExtremeContainer>{this.renderList()}</ExtremeContainer>
       </div>
     );
   }
@@ -81,8 +95,31 @@ export default connect(mapStateToProps, { fetchPostsAndUsers, fetchNewsPosts })(
   PostList
 );
 
+const ExtremeHero = styled.div `
+  max-width: 1208px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`
 
 const Container = styled.div `
-width: 100%,
-maxWith: 1208px
+  width: 484px;
+  height: 350px;
+`
+
+const HeroImage = styled.img `
+  height: 150px;
+  Width: 100%;
+  margin-bottom: 16px;
+`
+const TextContainer = styled.div `
+  padding-left: 88px;
+`
+
+const ExtremeContainer = styled.div `
+  margin-top: 48px;
+`
+
+const MiddleContainer = styled.div `
+  
 `
