@@ -20,7 +20,7 @@ class HeroContent extends Component {
               <MiddleContainer>
                 <img alt='headline' src={story.urlToImage} className="thumbnail" />
                 <HeroMiddleText>
-                <h3>{story.title}</h3>
+                <h3>{story.title.split(' ').slice(0,8).join(' ')}</h3>
                 <p>{story.author} in {story.source.name}</p>
                 </HeroMiddleText>
               </MiddleContainer>
@@ -36,7 +36,7 @@ class HeroContent extends Component {
                 <Container>
                 <HeroImage src={this.props.newsPosts[0].urlToImage} />
                 <TextContainer>
-                <h1>{this.props.newsPosts[0].title}</h1>
+                <h1>{this.props.newsPosts[0].title.split(' ').slice(0,8).join(' ')}</h1>
                 <p>{this.props.newsPosts[0].author} in {this.props.newsPosts[0].source.name}</p>
                 </TextContainer>  
               </Container>
@@ -47,7 +47,7 @@ class HeroContent extends Component {
                 <Container>
                 <HeroImage src={this.props.newsPosts[0].urlToImage} />
                 <TextContainer>
-                <h2>{this.props.newsPosts[0].title}</h2>
+                <h2>{this.props.newsPosts[0].title.split(' ').slice(0,8).join(' ')}</h2>
                 <p>{this.props.newsPosts[0].author} in {this.props.newsPosts[0].source.name}</p>
                 </TextContainer>  
               </Container>
@@ -70,6 +70,7 @@ const ExtremeHero = styled.div `
   width: 100%;
   display: flex;
   justify-content: center;
+  margin: 0 auto;
 `
 const HeroImage = styled.img `
   height: 150px;

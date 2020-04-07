@@ -51,6 +51,9 @@ class PostList extends Component {
     const { userPosts } = this.props;
     return (
       <div>
+        <HeroContent />
+        <HeroDivider></HeroDivider>
+        <ExtremeContainer>
         {userPosts.map(post => (
           <div className="ui relaxed divided list">
             <div className="item">
@@ -64,8 +67,8 @@ class PostList extends Component {
             </div>
           </div>
         ))}
-        <HeroContent />
-        <ExtremeContainer>{this.renderList()}</ExtremeContainer>
+        {this.renderList()}
+        </ExtremeContainer>
       </div>
     );
   }
@@ -88,3 +91,8 @@ const ExtremeContainer = styled.div `
   margin-top: 48px;
 `
 
+const HeroDivider = styled.div `
+  border-bottom: 1px solid rgba(0,0,0,.15);
+  max-width: 1032px;
+  margin: 24px auto;
+`
