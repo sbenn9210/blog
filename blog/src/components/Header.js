@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import GoogleAuth from "./GoogleAuth";
 import Topics from "./Topics";
+import Navigation from './Navigation'
+
 class Header extends Component {
   render() {
     const headerStyle = {
@@ -34,6 +36,7 @@ class Header extends Component {
               Upgrade
             </button>
             <GoogleAuth />
+            <Navigation />
           </div>
         </div>
         <Topics />
