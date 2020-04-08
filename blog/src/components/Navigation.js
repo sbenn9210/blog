@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
-
+import { Link } from 'react-router-dom'
 
 class Navigation extends Component {
     state = {
@@ -26,8 +26,8 @@ class Navigation extends Component {
             </UserContainer>
               <div className="ui header green item">Become a member</div>
               <div className="ui divider"></div>
-              <div className="item">New Story</div>
-              <div className="item">Stories</div>
+              <div className="item"> <Link to="/blogs/create">New Story</Link> </div>
+              <div className="item"> <Link to="/blogs/read">Stories</Link></div>
               <div className="item">Series</div>
               <div className="item">Stats</div>
               <div className="ui divider"></div>

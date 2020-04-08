@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import GoogleAuth from "./GoogleAuth";
 import Topics from "./Topics";
 import Navigation from './Navigation'
+import { Link } from 'react-router-dom'
 
 class Header extends Component {
   render() {
@@ -28,7 +29,7 @@ class Header extends Component {
     return (
       <div>
         <div style={headerStyle}>
-          <h1>Blogger</h1>
+          <h1><Link to="/">Blogger</Link></h1>
           <div style={rightIcons}>
             <i style={buttonSpacing} className="large search icon" />
             <i style={buttonSpacing} className="large bell outline icon" />
