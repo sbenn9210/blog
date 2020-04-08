@@ -14,7 +14,6 @@ class HeroContent extends Component {
         if (this.props.newsPosts && this.props.newsPosts[1]) {
           var storesArr = []
           storesArr.push(this.props.newsPosts[1],this.props.newsPosts[2],this.props.newsPosts[3])
-          console.log(storesArr)
           return storesArr.map(story => {
             return (
               <MiddleContainer>
@@ -43,12 +42,12 @@ class HeroContent extends Component {
                 : null
             }
                 <div>{this.renderHeroMiddle()}</div>
-                {this.props.newsPosts && this.props.newsPosts[0] ? 
+                {this.props.newsPosts && this.props.newsPosts[3] ? 
                 <Container>
-                <HeroImage src={this.props.newsPosts[0].urlToImage} />
+                <HeroImage src={this.props.newsPosts[3].urlToImage} />
                 <TextContainer>
-                <h2>{this.props.newsPosts[0].title.split(' ').slice(0,8).join(' ')}</h2>
-                <p>{this.props.newsPosts[0].author} in {this.props.newsPosts[0].source.name}</p>
+                <h2>{this.props.newsPosts[3].title.split(' ').slice(0,8).join(' ')}</h2>
+                <p>{this.props.newsPosts[3].author} in {this.props.newsPosts[3].source.name}</p>
                 </TextContainer>  
               </Container>
                 : null
@@ -97,7 +96,6 @@ const MiddleContainer = styled.div `
 `
 
 const HeroMiddleText = styled.div `
-
     display: flex;
     flex-direction: column;
     overflow-wrap: break-word;
