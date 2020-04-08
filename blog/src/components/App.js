@@ -10,9 +10,9 @@ import Header from "./Header";
 const App = () => {
   return (
     <div>
-      <Header />
       <BrowserRouter>
         <div>
+          <Header />
           <Route path="/" exact component={PostList} />
           <Route path="/blogs/create" exact component={BlogCreate} />
           <Route path="/blogs/delete" exact component={BlogDelete} />
