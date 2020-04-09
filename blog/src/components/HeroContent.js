@@ -35,7 +35,7 @@ class HeroContent extends Component {
                 <Container>
                 <HeroImage src={this.props.newsPosts[0].urlToImage} />
                 <TextContainer>
-                <h1>{this.props.newsPosts[0].title.split(' ').slice(0,8).join(' ')}</h1>
+                <h2>{this.props.newsPosts[0].title.split(' ').slice(0,8).join(' ')}</h2>
                 <p>{this.props.newsPosts[0].author} in {this.props.newsPosts[0].source.name}</p>
                 </TextContainer>  
               </Container>
@@ -47,7 +47,7 @@ class HeroContent extends Component {
                 <HiddenContainer>
                 <HeroImage src={this.props.newsPosts[3].urlToImage} />
                 <TextContainer>
-                <h2>{this.props.newsPosts[3].title.split(' ').slice(0,8).join(' ')}</h2>
+                <h3>{this.props.newsPosts[3].title.split(' ').slice(0,8).join(' ')}</h3>
                 <p>{this.props.newsPosts[3].author} in {this.props.newsPosts[3].source.name}</p>
                 </TextContainer>  
               </HiddenContainer>
@@ -72,8 +72,12 @@ const ExtremeHero = styled.div `
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  
-  
+  @media (max-width: 1030px) {
+    width: 95%;
+}
+  @media (max-width: 680px) {
+    flex-direction: column;
+  }
 `
 const HeroImage = styled.img `
   height: 150px;
@@ -84,6 +88,11 @@ const Container = styled.div `
 width: 484px;
 height: 350px;
 margin-right: 24px;
+@media (max-width: 680px) {
+    width: 95%;
+    margin: 0 auto;
+    height: 300px;
+}
 `
 const HiddenContainer = styled.div `
 width: 484px;
@@ -111,5 +120,4 @@ const HeroMiddleText = styled.div `
     display: flex;
     flex-direction: column;
     overflow-wrap: break-word;
-  
 `
