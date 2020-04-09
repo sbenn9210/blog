@@ -44,9 +44,6 @@ class PostList extends Component {
   }
 
 
-  
-
-
   render() {
     const { userPosts } = this.props;
     return (
@@ -67,7 +64,12 @@ class PostList extends Component {
             </div>
           </div>
         ))}
+        <NetworkDiv>
+          <h2 className='txt'>New from your network</h2>
+          <img width='135px' src='https://cdn-images-1.medium.com/proxy/1*K3oqw1Ed_6VMaql4HojuDg.png' />
+        </NetworkDiv>
         {this.renderList()}
+        
         </ExtremeContainer>
       </div>
     );
@@ -83,7 +85,16 @@ export default connect(mapStateToProps, { fetchPostsAndUsers, fetchNewsPosts })(
 );
 
 
-
+const NetworkDiv = styled.div `
+  background-color: rgb(215, 239, 238);
+  width: 328px;
+  height: 135px;
+  display: flex;
+  padding: 8px;
+  .txt  {
+    padding-top : 40px;
+  }
+`
 
 
 
