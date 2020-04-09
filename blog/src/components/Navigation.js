@@ -7,6 +7,7 @@ class Navigation extends Component {
         openMenu : "none"
     }
     openMenu = () => {
+          //Note to self - This is why you should use a css component library instead of using the css library for html
          this.state.openMenu === "none" ? this.setState({openMenu: 'block'}) : this.setState({openMenu: 'none'})
     }
 
@@ -41,7 +42,6 @@ class Navigation extends Component {
               <div className="item">Settings</div>
               <div className="item">Help</div>
               <div className="item">Sign out</div>
-
             </div>
           </div>
                 
