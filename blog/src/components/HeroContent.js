@@ -42,16 +42,18 @@ class HeroContent extends Component {
                 : null
             }
                 <div>{this.renderHeroMiddle()}</div>
+                <div className="hide">
                 {this.props.newsPosts && this.props.newsPosts[3] ? 
-                <Container>
+                <HiddenContainer>
                 <HeroImage src={this.props.newsPosts[3].urlToImage} />
                 <TextContainer>
                 <h2>{this.props.newsPosts[3].title.split(' ').slice(0,8).join(' ')}</h2>
                 <p>{this.props.newsPosts[3].author} in {this.props.newsPosts[3].source.name}</p>
                 </TextContainer>  
-              </Container>
+              </HiddenContainer>
                 : null
             }
+            </div>
             </ExtremeHero>
         )
     }
@@ -70,6 +72,8 @@ const ExtremeHero = styled.div `
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  
+  
 `
 const HeroImage = styled.img `
   height: 150px;
@@ -77,9 +81,17 @@ const HeroImage = styled.img `
   margin-bottom: 16px;
 `
 const Container = styled.div `
-  width: 484px;
-  height: 350px;
-  margin-right: 24px;
+width: 484px;
+height: 350px;
+margin-right: 24px;
+`
+const HiddenContainer = styled.div `
+width: 484px;
+height: 350px;
+margin-right: 24px;
+@media (max-width: 1030px) {
+      display: none;
+  }
 `
 const TextContainer = styled.div `
   padding-left: 88px;
