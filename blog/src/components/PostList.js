@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchPostsAndUsers } from "../actions";
-import { fetchNewsPosts } from "../actions";
+import { fetchPostsAndUsers, fetchNewsPosts, fetchAvatars } from "../actions";
 import styled from 'styled-components'
 import HeroContent from './HeroContent'
 
 class PostList extends Component {
   componentDidMount() {
     this.props.fetchPostsAndUsers();
+    this.props.fetchAvatars()
   }
 
 
@@ -44,9 +44,6 @@ class PostList extends Component {
   }
 
 
-  
-
-
   render() {
     const { userPosts } = this.props;
     return (
@@ -67,7 +64,12 @@ class PostList extends Component {
             </div>
           </div>
         ))}
+        <NetworkDiv>
+          <h2 className='txt'>New from your network</h2>
+          <img width='135px' src='https://cdn-images-1.medium.com/proxy/1*K3oqw1Ed_6VMaql4HojuDg.png' />
+        </NetworkDiv>
         {this.renderList()}
+        
         </ExtremeContainer>
       </div>
     );
@@ -75,15 +77,24 @@ class PostList extends Component {
 }
 
 const mapStateToProps = state => {
-  return { newsPosts: state.newsPosts, userPosts: state.blog.posts };
+  return { newsPosts: state.newsPosts, userPosts: state.blog.posts, avatars: state.avatars };
 };
 
-export default connect(mapStateToProps, { fetchPostsAndUsers, fetchNewsPosts })(
+export default connect(mapStateToProps, { fetchPostsAndUsers, fetchNewsPosts, fetchAvatars })(
   PostList
 );
 
 
-
+const NetworkDiv = styled.div `
+  background-color: rgb(215, 239, 238);
+  width: 328px;
+  height: 135px;
+  display: flex;
+  padding: 8px;
+  .txt  {
+    padding-top : 40px;
+  }
+`
 
 
 
