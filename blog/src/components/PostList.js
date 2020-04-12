@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchPostsAndUsers } from "../actions";
-import { fetchNewsPosts } from "../actions";
+import { fetchPostsAndUsers, fetchNewsPosts, fetchAvatars } from "../actions";
 import styled from 'styled-components'
 import HeroContent from './HeroContent'
 
 class PostList extends Component {
   componentDidMount() {
     this.props.fetchPostsAndUsers();
+    this.props.fetchAvatars()
   }
 
 
@@ -77,10 +77,10 @@ class PostList extends Component {
 }
 
 const mapStateToProps = state => {
-  return { newsPosts: state.newsPosts, userPosts: state.blog.posts };
+  return { newsPosts: state.newsPosts, userPosts: state.blog.posts, avatars: state.avatars };
 };
 
-export default connect(mapStateToProps, { fetchPostsAndUsers, fetchNewsPosts })(
+export default connect(mapStateToProps, { fetchPostsAndUsers, fetchNewsPosts, fetchAvatars })(
   PostList
 );
 

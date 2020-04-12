@@ -47,6 +47,21 @@ export const fetchNewsPosts = () => async dispatch => {
   });
 };
 
+export const fetchAvatars = () => async dispatch => {
+  const config = {
+    headers : {
+      "X-API-KEY" : '02024e078bf8f41f29bfff7920b299',
+      
+    }
+  }
+
+  const response = await axios.get('https://uifaces.co/api', config)
+  dispatch({
+    type: 'FETCH_AVATARS',
+    payload: response.data
+})
+}
+
 export const fetchUser = id => async dispatch => {
   const response = await jsonPlaceholder.get(`/users/${id}`);
 
