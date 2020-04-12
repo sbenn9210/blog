@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const data = [
-  'Defining Nested Routes with React Router',
-  'Taking a UX Approach to Content Creation',
-  'Accessibility: how to involve dyslexic users into your design',
-  'Adding Reactivity to Our Svelte App'
+  {title: 'Defining Nested Routes with React Router', group: 'The Startup'},
+  {title: 'Taking a UX Approach to Content Creation', group: 'UX Collective'},
+  {title: 'Accessibility: how to involve dyslexic users into your design', group: 'Towards Data Science'},
+  {title: 'Adding Reactivity to Our Svelte App', group: 'The Startup'}
 ]
 
 function NetworkSection(props) {
@@ -20,7 +20,8 @@ function NetworkSection(props) {
           {avatars.map((avatar, index) => (
             <span>
             <Avatar src={avatar.photo} />
-            <h5>{data[index]}</h5>
+            <h5>{data[index].title}</h5>
+            <p>{avatar.name} in {data[index].group}</p>
             </span>
           ))}
         </NetworkStories>
