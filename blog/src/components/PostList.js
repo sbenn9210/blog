@@ -45,7 +45,8 @@ class PostList extends Component {
 
 
   render() {
-    const { userPosts } = this.props;
+    const { userPosts, avatars } = this.props;
+    console.log(avatars)
     return (
       <div>
         <HeroContent />
@@ -67,6 +68,13 @@ class PostList extends Component {
         <NetworkDiv>
           <h2 className='txt'>New from your network</h2>
           <img width='135px' src='https://cdn-images-1.medium.com/proxy/1*K3oqw1Ed_6VMaql4HojuDg.png' />
+          <div className='images'>
+          {avatars.map(avatar => (
+            <div >
+              <Avatar src={avatar.photo} />
+            </div>
+          ))}
+          </div>
         </NetworkDiv>
         {this.renderList()}
         
@@ -93,6 +101,10 @@ const NetworkDiv = styled.div `
   padding: 8px;
   .txt  {
     padding-top : 40px;
+  };
+  .images {
+    display: flex;
+    flex-direction: column;
   }
 `
 
@@ -106,4 +118,9 @@ const HeroDivider = styled.div `
   border-bottom: 1px solid rgba(0,0,0,.15);
   max-width: 1032px;
   margin: 24px auto;
+`
+const Avatar = styled.img `
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
 `
