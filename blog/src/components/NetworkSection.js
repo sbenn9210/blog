@@ -8,7 +8,7 @@ const data = [
   {title: 'Adding Reactivity to Our Svelte App', group: 'The Startup'}
 ]
 
-function NetworkSection(props) {
+function NetworkSection (props) {
   const { avatars } = props
     return (
        <div>

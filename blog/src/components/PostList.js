@@ -4,6 +4,7 @@ import { fetchPostsAndUsers, fetchNewsPosts, fetchAvatars } from "../actions";
 import styled from 'styled-components'
 import HeroContent from './HeroContent'
 import NetworkSection from './NetworkSection'
+import Popular from './Popular'
 
 class PostList extends Component {
   componentDidMount() {
@@ -67,6 +68,7 @@ class PostList extends Component {
         ))}
        
         <NetworkSection avatars={avatars}  />
+        <Popular />
         {this.renderList()}
         </ExtremeContainer>
       </div>
