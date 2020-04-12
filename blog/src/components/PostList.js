@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { fetchPostsAndUsers, fetchNewsPosts, fetchAvatars } from "../actions";
 import styled from 'styled-components'
 import HeroContent from './HeroContent'
+import NetworkSection from './NetworkSection'
 
 class PostList extends Component {
   componentDidMount() {
@@ -46,7 +47,6 @@ class PostList extends Component {
 
   render() {
     const { userPosts, avatars } = this.props;
-    console.log(avatars)
     return (
       <div>
         <HeroContent />
@@ -65,19 +65,9 @@ class PostList extends Component {
             </div>
           </div>
         ))}
-        <NetworkDiv>
-          <h2 className='txt'>New from your network</h2>
-          <img width='135px' src='https://cdn-images-1.medium.com/proxy/1*K3oqw1Ed_6VMaql4HojuDg.png' />
-          <div className='images'>
-          {avatars.map(avatar => (
-            <div >
-              <Avatar src={avatar.photo} />
-            </div>
-          ))}
-          </div>
-        </NetworkDiv>
+       
+        <NetworkSection avatars={avatars}  />
         {this.renderList()}
-        
         </ExtremeContainer>
       </div>
     );
@@ -93,21 +83,6 @@ export default connect(mapStateToProps, { fetchPostsAndUsers, fetchNewsPosts, fe
 );
 
 
-const NetworkDiv = styled.div `
-  background-color: rgb(215, 239, 238);
-  width: 328px;
-  height: 135px;
-  display: flex;
-  padding: 8px;
-  .txt  {
-    padding-top : 40px;
-  };
-  .images {
-    display: flex;
-    flex-direction: column;
-  }
-`
-
 
 
 const ExtremeContainer = styled.div `
@@ -118,9 +93,4 @@ const HeroDivider = styled.div `
   border-bottom: 1px solid rgba(0,0,0,.15);
   max-width: 1032px;
   margin: 24px auto;
-`
-const Avatar = styled.img `
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
 `
