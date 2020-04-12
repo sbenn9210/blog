@@ -18,11 +18,13 @@ function NetworkSection(props) {
         </NetworkDiv>
         <NetworkStories>
           {avatars.map((avatar, index) => (
-            <span>
+            <TitleGroup>
             <Avatar src={avatar.photo} />
-            <h5>{data[index].title}</h5>
-            <p>{avatar.name} in {data[index].group}</p>
+            <span>
+              <h2 className="title">{data[index].title}</h2>
+              <p>{avatar.name} in {data[index].group}</p>
             </span>
+            </TitleGroup>
           ))}
         </NetworkStories>
        </div> 
@@ -47,9 +49,25 @@ const Avatar = styled.img `
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  margin-right: 10px;
 `
 
 const NetworkStories = styled.div `
+  width: 328px;
+  height: 560px;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #fafafa;
+  padding: 32px;
+`
+
+const TitleGroup = styled.span `
+  display: flex;
+  margin-bottom: 24px;
+  .title {
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 18px;
+  };
 `
