@@ -55,7 +55,7 @@ export const fetchAvatars = () => async dispatch => {
     }
   }
 
-  const response = await axios.get('https://uifaces.co/api', config)
+  const response = await axios.get('https://uifaces.co/api?limit=4', config)
   dispatch({
     type: 'FETCH_AVATARS',
     payload: response.data
