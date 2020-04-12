@@ -1,6 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const data = [
+  'Defining Nested Routes with React Router',
+  'Taking a UX Approach to Content Creation',
+  'Accessibility: how to involve dyslexic users into your design',
+  'Adding Reactivity to Our Svelte App'
+]
+
 function NetworkSection(props) {
   const { avatars } = props
     return (
@@ -10,10 +17,11 @@ function NetworkSection(props) {
           <img width='135px' src='https://cdn-images-1.medium.com/proxy/1*K3oqw1Ed_6VMaql4HojuDg.png' />
         </NetworkDiv>
         <NetworkStories>
-          {avatars.map(avatar => (
-            <div>
-              <Avatar src={avatar.photo} />
-            </div>
+          {avatars.map((avatar, index) => (
+            <span>
+            <Avatar src={avatar.photo} />
+            <h5>{data[index]}</h5>
+            </span>
           ))}
         </NetworkStories>
        </div> 
