@@ -11,7 +11,7 @@ const data = [
 function Popular () {
     return (
         <Aside>
-            <h2>Popular on Medium</h2>
+            <h2 className="popular-title">Popular on Medium</h2>
             <HeroDivider></HeroDivider>
         <PopularStories>
             {data.map(story => (
@@ -39,6 +39,9 @@ const HeroDivider = styled.div `
 const Aside = styled.aside `
     height: 580px;
     width: 330px;
+    .popular-title {
+        margin: 32px 32px 0px 32px;
+    }
 `
 
 const PopularStories = styled.div `
