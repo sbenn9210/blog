@@ -41,7 +41,11 @@ const Aside = styled.aside `
     width: 330px;
     .popular-title {
         margin: 32px 32px 0px 32px;
-    }
+    };
+    @media (max-width: 855px) {
+        width: 680px;
+        margin: 0 auto;
+      };
 `
 
 const PopularStories = styled.div `

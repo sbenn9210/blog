@@ -97,6 +97,13 @@ const ExtremeContainer = styled.div `
   margin-top: 48px;
   display: flex;
   justify-content: center;
+  @media (max-width: 855px) {
+    flex-direction: column;
+    .stories {
+      max-width: 680px;
+      margin: 0 auto;
+    } 
+  };
   .stories {
     max-width: 680px;
     margin-right: 48px;
