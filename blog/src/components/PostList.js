@@ -26,19 +26,18 @@ class PostList extends Component {
     if (this.props.newsPosts) {
       return this.props.newsPosts.map((post, index) => {
           return (
-            <div key={index} style={this.flex} className="item ui container" >
-              <div>
-                <img style={this.images} alt={"images"} src={post.urlToImage} />
-              </div>
+            <StoryContent key={index} style={this.flex} className="item ui container">
               <div className="content">
                 <div className="description">
                   <h2>{post.title}</h2>
-                  <p>{post.description}</p>
-                  <p>{post.content}</p>
+                  <p>{post.description}...</p>
                 </div>
                 <p>{post.author}</p>
               </div>
-            </div>
+              <div>
+                <img style={this.images} alt={"images"} src={post.urlToImage} />
+              </div>
+            </StoryContent>
           );
       });
     } else {
@@ -54,7 +53,8 @@ class PostList extends Component {
         <HeroContent />
         <HeroDivider></HeroDivider>
         <ExtremeContainer>
-        {userPosts.map(post => (
+          <div className="stories">
+          {userPosts.map(post => (
           <div className="ui relaxed divided list">
             <div className="item">
               <i className="large middle aligned icon user" />
@@ -67,11 +67,13 @@ class PostList extends Component {
             </div>
           </div>
         ))}
-       
-        <NetworkSection avatars={avatars}  />
-        <Popular />
-        <ReadingList />
-        {this.renderList()}
+         {this.renderList()}
+          </div>
+          <div>
+          <NetworkSection avatars={avatars}  />
+          <Popular />
+          <ReadingList />
+          </div>
         </ExtremeContainer>
       </div>
     );
@@ -90,11 +92,23 @@ export default connect(mapStateToProps, { fetchPostsAndUsers, fetchNewsPosts, fe
 
 
 const ExtremeContainer = styled.div `
+  max-width: 1032px;
+  margin: 0 auto;
   margin-top: 48px;
+  display: flex;
+  justify-content: center;
+  .stories {
+    max-width: 680px;
+    margin-right: 48px;
+  } 
 `
 
 const HeroDivider = styled.div `
   border-bottom: 1px solid rgba(0,0,0,.15);
   max-width: 1032px;
   margin: 24px auto;
+`
+
+const StoryContent = styled.div `
+  margin-bottom: 48px;
 `
