@@ -46,10 +46,10 @@ class HeroContent extends Component {
                 {this.props.newsPosts && this.props.newsPosts[3] ? 
                 <HiddenContainer>
                 <HeroImage src={this.props.newsPosts[3].urlToImage} />
-                <TextContainer>
+             
                 <h3>{this.props.newsPosts[3].title.split(' ').slice(0,8).join(' ')}</h3>
                 <p>{this.props.newsPosts[3].author} in {this.props.newsPosts[3].source.name}</p>
-                </TextContainer>  
+                
               </HiddenContainer>
                 : null
             }
@@ -95,9 +95,9 @@ margin-right: 24px;
 }
 `
 const HiddenContainer = styled.div `
-width: 484px;
+width: 323px;
 height: 350px;
-margin-right: 24px;
+margin-left: 24px;
 @media (max-width: 1030px) {
       display: none;
   }

@@ -44,13 +44,6 @@ const ReadingDiv = styled.div `
   };
 `
 
-const Avatar = styled.img `
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-`
-
 const Stories = styled.div `
   width: 328px;
   height: 560px;
