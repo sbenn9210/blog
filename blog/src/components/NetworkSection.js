@@ -43,6 +43,10 @@ const NetworkDiv = styled.div `
   .txt  {
     padding-top : 40px;
   };
+  @media (max-width: 855px) {
+    width: 680px;
+    margin: 0 auto;
+  };
 `
 
 const Avatar = styled.img `
@@ -60,6 +64,10 @@ const NetworkStories = styled.div `
   justify-content: space-evenly;
   background-color: #fafafa;
   padding: 32px;
+  @media (max-width: 855px) {
+    width: 680px;
+    margin: 0 auto;
+  };
 `
 
 const TitleGroup = styled.span `

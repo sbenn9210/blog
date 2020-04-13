@@ -42,6 +42,10 @@ const ReadingDiv = styled.div `
   .txt  {
     padding-top : 70px;
   };
+  @media (max-width: 855px) {
+    width: 680px;
+    margin: 0 auto;
+  };
 `
 
 const Stories = styled.div `
@@ -52,6 +56,10 @@ const Stories = styled.div `
   justify-content: space-evenly;
   background-color: #fafafa;
   padding: 24px;
+  @media (max-width: 855px) {
+    width: 680px;
+    margin: 0 auto;
+  };
 `
 
 const TitleGroup = styled.span `
