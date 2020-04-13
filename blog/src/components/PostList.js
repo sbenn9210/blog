@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import HeroContent from './HeroContent'
 import NetworkSection from './NetworkSection'
 import Popular from './Popular'
+import ReadingList from './ReadingList'
 
 class PostList extends Component {
   componentDidMount() {
@@ -69,6 +70,7 @@ class PostList extends Component {
        
         <NetworkSection avatars={avatars}  />
         <Popular />
+        <ReadingList />
         {this.renderList()}
         </ExtremeContainer>
       </div>
