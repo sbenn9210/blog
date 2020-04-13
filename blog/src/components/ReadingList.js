@@ -69,10 +69,8 @@ const TitleGroup = styled.span `
     font-weight: 600;
     font-size: 18px;
   };
-  .iconic {
-      
+  .iconic {   
       margin: 5px 15px 0 0;
-      
   }
 `
 
